@@ -1,5 +1,5 @@
 const WebSocket = require("ws");
-const wsServer = WebSocket.Server({ port: 7070 });
+const wsServer = new WebSocket.Server({ port: 7070 });
 const uuid = require("uuid");
 let members = [];
 
@@ -24,7 +24,7 @@ function onConnect(wsClient) {
           const user = { id, nick: data.nick };
           members.push(user);
           wsClient.send(JSON.stringify({ flag: "IdUser", IdUser: user.id }));
-          [...wsClient.clients]
+          [...wsServer.clients]
             .filter((item) => item.readyState === WebSocket.OPEN)
             .forEach((item) => 
               item.send(JSON.stringify({ flag: "members", body: members }))
