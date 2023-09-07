@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "WebSocket backend",
   "main": "index.js",
+  "scripts": {
+    "prestart": "npm install",
+    "start": "forever server.js",
+    "watch": "forever -w server.js"
+  },
   "repository": "https://github.com/iIgor2022/ahj_sse_ws_backend.git",
   "author": "Igor Ovchinnikov <faceplaces@inbox.ru>",
   "license": "MIT",
