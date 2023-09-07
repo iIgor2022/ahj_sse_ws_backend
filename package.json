@@ -4,7 +4,7 @@
   "description": "WebSocket backend",
   "main": "index.js",
   "scripts": {
-    "prestart": "npm install",
+    "prestart": "yarn",
     "start": "forever server.js",
     "watch": "forever -w server.js"
   },
